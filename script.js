@@ -1,8 +1,3 @@
-/*
-  Johan Karlsson, 2019
-  https://twitter.com/DonKarlssonSan
-  MIT License, see Details View
-*/
 
 class Particle {
   constructor(angle) {
@@ -13,18 +8,19 @@ class Particle {
   }
 
   move() {
-    let noiseFactor = 0.3 * size;
+    let noiseFactor = 0.2 * size;
     let n = Math.sin(this.angle + ticker + this.offset) * noiseFactor;
     let r = size + n;
     this.x = r * 16 * Math.pow(Math.sin(this.angle), 3);
     this.y = -r * (13 * Math.cos(this.angle) - 5 * Math.cos(2 * this.angle) - 2 * Math.cos(3 * this.angle) - Math.cos(4 * this.angle));
 
-    this.angle += 0.004;
+    this.angle += 0.0009;
   }
 
   draw(x0, y0) {
     ctx.fillRect(x0 + this.x, y0 + this.y, 1, 1);
-  }}
+  }
+}
 
 
 let canvas;
@@ -43,7 +39,7 @@ function setup() {
 
 function setupParticles() {
   particles = [];
-  let nrOfParticles = size * size * 200;
+  let nrOfParticles = size * size * 40;
   for (let angle = 0; angle < Math.PI * 2; angle += Math.PI * 2 / nrOfParticles) {
     let p = new Particle(angle);
     particles.push(p);
@@ -53,7 +49,7 @@ function setupParticles() {
 function reset() {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight;
-  size = Math.min(w, h) * 0.022;
+  size = Math.min(w, h) * 0.03;
   setupParticles();
 }
 
@@ -66,7 +62,7 @@ function draw() {
     p.move();
     p.draw(w / 2, h * 0.45);
   });
-  ticker += 0.02;
+  ticker += 0.04;
 }
 
 setup();
