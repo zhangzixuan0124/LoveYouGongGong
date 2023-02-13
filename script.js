@@ -55,9 +55,9 @@ function reset() {
 
 function draw() {
   requestAnimationFrame(draw);
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "pink";
   ctx.fillRect(0, 0, w, h);
-  ctx.fillStyle = "red";
+  ctx.fillStyle = "white";
   particles.forEach(p => {
     p.move();
     p.draw(w / 2, h * 0.45);
