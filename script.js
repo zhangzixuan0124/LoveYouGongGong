@@ -14,7 +14,7 @@ class Particle {
     this.x = r * 16 * Math.pow(Math.sin(this.angle), 3);
     this.y = -r * (13 * Math.cos(this.angle) - 5 * Math.cos(2 * this.angle) - 2 * Math.cos(3 * this.angle) - Math.cos(4 * this.angle));
 
-    this.angle += 0.0009;
+    this.angle += 0.001;
   }
 
   draw(x0, y0) {
@@ -49,7 +49,7 @@ function setupParticles() {
 function reset() {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight;
-  size = Math.min(w, h) * 0.03;
+  size = Math.min(w, h) * 0.025;
   setupParticles();
 }
 
