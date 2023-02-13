@@ -8,7 +8,7 @@ class Particle {
   }
 
   move() {
-    let noiseFactor = 0.2 * size;
+    let noiseFactor = 0.05 * size;
     let n = Math.sin(this.angle + ticker + this.offset) * noiseFactor;
     let r = size + n;
     this.x = r * 16 * Math.pow(Math.sin(this.angle), 3);
@@ -39,7 +39,7 @@ function setup() {
 
 function setupParticles() {
   particles = [];
-  let nrOfParticles = size * size * 40;
+  let nrOfParticles = size * size * 70;
   for (let angle = 0; angle < Math.PI * 2; angle += Math.PI * 2 / nrOfParticles) {
     let p = new Particle(angle);
     particles.push(p);
@@ -60,7 +60,7 @@ function draw() {
   ctx.fillStyle = "white";
   particles.forEach(p => {
     p.move();
-    p.draw(w / 2, h * 0.45);
+    p.draw(w / 2, h * 0.40);
   });
   ticker += 0.04;
 }

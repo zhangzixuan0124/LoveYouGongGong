@@ -1,8 +1,4 @@
-/*
-  Johan Karlsson, 2019
-  https://twitter.com/DonKarlssonSan
-  MIT License, see Details View
-*/
+
 
 class Particle {
   constructor(angle) {
@@ -13,7 +9,7 @@ class Particle {
   }
   
   move() {
-    let noiseFactor = 0.3 * size;  
+    let noiseFactor = 0.1 * size;  
     let n = Math.sin(this.angle + ticker + this.offset) * noiseFactor; 
     let r = size + n;
     this.x = r * 16 * Math.pow(Math.sin(this.angle), 3);
@@ -43,7 +39,7 @@ function setup() {
 
 function setupParticles() {
   particles = [];
-  let nrOfParticles = size*size*200;
+  let nrOfParticles = size*size*100;
   for(let angle = 0; angle < Math.PI * 2; angle += Math.PI * 2 / nrOfParticles) {
     let p = new Particle(angle);
     particles.push(p);
